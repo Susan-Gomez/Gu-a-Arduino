@@ -1,0 +1,22 @@
+//Ejercicio #10
+
+int redPin = 7;
+int greenPin = 8;
+int bluePin = 9;
+ const input;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    input = Serial.read();
+    digitalWrite(redPin, input == 'R');
+    digitalWrite(greenPin, input == 'G');
+    digitalWrite(bluePin, input == 'B');
+  }
+}
