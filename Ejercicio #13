@@ -1,0 +1,19 @@
+//Ejercicio #13
+
+int motorPin = 9
+const speed = 0;
+
+void setup() {
+  pinMode(motorPin, OUTPUT);
+}
+
+void loop() {
+  for (speed = 0; speed <= 255; speed += 5) {
+    analogWrite(motorPin, speed);
+    delay(100);
+  }
+  for (speed = 255; speed >= 0; speed -= 5) {
+    analogWrite(motorPin, speed);
+    delay(100);
+  }
+}
