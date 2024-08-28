@@ -1,0 +1,27 @@
+//Ejercicio #22
+ int pirPin = 2;     
+ int ledPin = 13;  
+ long interval = 300000; /
+unsigned long previousMillis = 0;
+bool ledState = false;
+
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+  int pirValue = digitalRead(pirPin);
+  
+  if (pirValue == HIGH && !ledState) {
+    digitalWrite(ledPin, HIGH);
+    previousMillis = millis();
+    ledState = true;
+  }
+
+  if (ledState && millis() - previousMillis >= interval) {
+    digitalWrite(ledPin, LOW);
+    ledState = false;
+  }
+}
