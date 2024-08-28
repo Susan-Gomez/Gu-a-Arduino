@@ -1,0 +1,33 @@
+//Ejercicio #15
+
+int Pin1 = 9;  
+int Pin2 = 10; 
+
+void setup() {
+  Serial.begin(9600);   
+  pinMode(Pin1, OUTPUT); 
+  pinMode(Pin2, INPUT);  
+}
+
+void loop() {
+  digitalWrite(Pin1, LOW);
+  delayMicroseconds(2);
+  digitalWrite(Pin1, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(Pin1, LOW);
+
+  long duracion = pulseIn(Pin2, HIGH);
+
+  float distancia = (duracion * 0.343) / 2;
+
+
+  float tiempoSegundos = duracion / 1000000.0; 
+
+  Serial.print("Distancia: ");
+  Serial.print(distancia);
+  Serial.print(" mm, Tiempo: ");
+  Serial.print(tiempoSegundos);
+  Serial.println(" s");
+
+  delay(500); 
+}
