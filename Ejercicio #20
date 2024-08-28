@@ -1,0 +1,18 @@
+// Ejercicio #20
+int gasSensorPin = A0;
+int buzzerPin = 7;
+int threshold = 300;
+int gasValue;
+
+void setup() {
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  gasValue = analogRead(gasSensorPin);
+  if (gasValue > threshold) {
+    digitalWrite(buzzerPin, HIGH);
+  } else {
+    digitalWrite(buzzerPin, LOW);
+  }
+}
