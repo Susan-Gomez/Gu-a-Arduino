@@ -1,0 +1,28 @@
+Ejercicio #3
+
+int redLed = 7;  
+int yellowLed = 8;
+int greenLed = 9;  
+
+int redTime = 5000;    
+int yellowTime = 2000; 
+int greenTime = 5000; 
+
+void setup() {
+  pinMode(redLed, OUTPUT);
+  pinMode(yellowLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+}
+
+void loop() {
+ 
+  digitalWrite(greenLed, HIGH);
+  delay(greenTime);
+  digitalWrite(greenLed, LOW);
+  digitalWrite(yellowLed, HIGH);
+  delay(yellowTime);
+  digitalWrite(yellowLed, LOW);
+  digitalWrite(redLed, HIGH);
+  delay(redTime);
+  digitalWrite(redLed, LOW);
+}
