@@ -1,0 +1,21 @@
+//Ejercicio #1
+
+ int ledPin = 7;      
+ int numeroled = 5;   
+ int dt1 = 500;   
+ int dt2 = 500;  
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+  for (int i = 0; i < numeroled; i++) {
+    digitalWrite(ledPin, HIGH);  
+    delay(dt1);                
+    digitalWrite(ledPin, LOW); 
+    delay(dt2);             
+  }
+  delay(2000);
+}
