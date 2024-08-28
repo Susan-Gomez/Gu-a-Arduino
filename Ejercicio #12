@@ -1,0 +1,36 @@
+Ejercicio #12
+
+#include <Servo.h>
+
+const int ldrPin = A0;  
+const int servoPin = 9; 
+Servo myServo;        
+
+int ldrValue = 0;       
+int angle = 0;          
+
+void setup() {
+  Serial.begin(9600);   
+  myServo.attach(servoPin); 
+}
+
+void loop() {
+  ldrValue = analogRead(ldrPin); 
+  Serial.print("ldr: ");
+  Serial.println(ldrValue);
+
+ 
+  angle = map(ldrValue, 0, 1023, 0, 180);
+  myServo.write(angle);
+
+
+  if (ldrValue < 150) {
+    Serial.println("noche");
+  } else if (ldrValue < 400) {
+    Serial.println("tarde");
+  } else {
+    Serial.println("mañana");
+  }
+
+  delay(500); 
+}
